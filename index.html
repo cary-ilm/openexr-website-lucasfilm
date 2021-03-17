@@ -5,7 +5,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>OpenEXR</title>
 
-
 </head>
 
 <body background="images/exr_bkg2.jpg" bgcolor="#000000" leftmargin=0 topmargin=0 marginheight=0 marginwidth=0 alink="#00FFFF" link="#33ffFF" vlink="#33ffFF" text="#999999">
@@ -186,7 +185,147 @@ target="_blank">here</a>.
 
 <p><h3><a name="announ">Announcements</a></h3>
 
-<p><strong>Sep 19, 2019</strong> - OpenEXR version v2.4.0 is available for download at <a href="https://github.com/openexr/openexr/releases/tag/v2.4.0">https://github.com/openexr/openexr/releases/tag/v2.4.0</a></p>
+<p><strong>August 12, 2020</strong> - OpenEXR version v2.5.3 is available for download at <a href="https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.5.3">https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.5.3</a></p>
+
+<p>Patch release with various bug/security fixes and build/install fixes, plus a performance optimization:</p>
+
+<ul>
+<li>Various sanitizer/fuzz-identified issues related to handling of invalid input</li>
+<li>Fixes to misc compiler warnings</li>
+<li>Cmake fix for building on arm64 macOS (#772)</li>
+<li>Read performance optimization (#782)</li>
+<li>Fix for building on non-glibc (#798)</li>
+<li>Fixes to tests</li>
+</ul>
+
+<p>---</p>
+
+<p><strong>June 15, 2020</strong> - OpenEXR version v2.5.2 is available for download at <a href="https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.5.2">https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.5.2</a></p>
+
+<p>Patch release with various bug/security and build/install fixes:</p>
+
+<ul>
+<li>Invalid input could cause a heap-use-after-free error in DeepScanLineInputFile::DeepScanLineInputFile()</li>
+<li>Invalid chunkCount attributes could cause heap buffer overflow in getChunkOffsetTableSize()</li>
+<li>Invalid tiled input file could cause invalid memory access TiledInputFile::TiledInputFile()</li>
+<li>OpenEXRConfig.h now correctly sets OPENEXR_PACKAGE_STRING to "OpenEXR" (rather than "IlmBase")</li>
+<li>Various Windows build fixes</li>
+</ul>
+
+<p>---</p>
+
+<p><strong>June 15, 2020</strong> - OpenEXR version v2.4.2 is available for download at <a href="https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.4.2">https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.4.2</a></p>
+
+<p>Patch release that backports various recent bug/security fixes:</p>
+
+<ul>
+<li>Invalid input could cause a heap-use-after-free error in DeepScanLineInputFile::DeepScanLineInputFile()</li>
+<li>Invalid chunkCount attributes could cause heap buffer overflow in getChunkOffsetTableSize()</li>
+<li>Invalid tiled input file could cause invalid memory access TiledInputFile::TiledInputFile()</li>
+<li>OpenEXRConfig.h now correctly sets OPENEXR_PACKAGE_STRING to "OpenEXR" (rather than "IlmBase)"</li>
+</ul>
+
+<p>---</p>
+
+<p><strong>May 11, 2020</strong> - OpenEXR version v2.5.1 is available for download at <a href="https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.5.1">https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.5.1</a></p>
+
+<p>v2.5.1 is a patch release that corrects the SO version for the v2.5
+release, which missed getting bumped in v2.5.0.</p>
+
+<p>This release also fixes an improper failure in IlmImfTest when running on ARMv7 and AAarch64.</p>
+
+<p>---</p>
+
+<p><strong>May 6, 2020</strong> - OpenEXR version v2.5.0 is available for download at <a href="https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.5.0">https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.5.0</a></p>
+
+<p>This is a minor release with miscellaneous bug fixes and small features</p>
+
+<p>Summary</p>
+<ul>
+<li> No more build-time header generation: toFloat.h, eLut.h,
+  b44ExpLogTable.h, and dwaLookups.h are now ordinary header files, no
+  longer generated on the fly. </li>
+<li> New StdISSTream class, an "input" stringstream version of
+  StdOSStream </li>
+<li> New Matrix22 class in Imath </li>
+<li> Chromaticity comparison operator now includes white (formerly
+  ignored) </li>
+<li> Various cmake fixes </li>
+<li> Bug fixes for various memory leaks </li>
+<li> Bug fixes for various invalid memory accesses </li>
+<li> New checks to detect damaged input files </li>
+<li> OpenEXR_Viewers has been deprecated, removed from the top-level 
+  cmake build and documentation.</li>
+</ul>
+
+<p>See the <a href="https://github.com/AcademySoftwareFoundation/openexr/blob/v2.5.0/CHANGES.md#version-250-may-6-2020">release
+  notes</a> for more details.</p>
+
+<p>---</p>
+
+<p><strong>April 30, 2020</strong> - OpenEXR version v2.2.2 is available for download at <a href="https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.2.2">https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.2.2</a></p>
+
+
+<p>This is a patch release of OpenEXR v2.2 that includes fixes for the following security vulnerabilities:</p>
+
+<li>
+  <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11765">[CVE-2020-11765]</a>
+  There is an off-by-one error in use of the ImfXdr.h read function by
+  DwaCompressor::Classifier::Classifier, leading to an out-of-bounds
+  read. </li>
+<li>
+  <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11764">[CVE-2020-11764]</a>
+  There is an out-of-bounds write in copyIntoFrameBuffer in
+  ImfMisc.cpp. </li>
+<li>
+  <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11763">[CVE-2020-11763]</a>
+  There is an std::vector out-of-bounds read and write, as
+  demonstrated by ImfTileOffsets.cpp. </li>
+<li>
+  <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11762">[CVE-2020-11762]</a>
+  There is an out-of-bounds read and write in
+  DwaCompressor::uncompress in ImfDwaCompressor.cpp when handling the
+  UNKNOWN compression case. </li>
+<li>
+  <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11761">[CVE-2020-11761]</a>
+  There is an out-of-bounds read during Huffman uncompression, as
+  demonstrated by FastHufDecoder::refill in ImfFastHuf.cpp. </li>
+<li>
+  <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11760">[CVE-2020-11760]</a>
+  There is an out-of-bounds read during RLE uncompression in
+  rleUncompress in ImfRle.cpp. </li>
+<li>
+  <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11759">[CVE-2020-11759]</a>
+  Because of integer overflows in
+  CompositeDeepScanLine::Data::handleDeepFrameBuffer and
+  readSampleCountForLineBlock, an attacker can write to an
+  out-of-bounds pointer. </li>
+<li>
+  [CVE-2020-11758](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11758)
+  There is an out-of-bounds read in ImfOptimizedPixelReading.h. </li>
+</ul>
+
+<p>See
+  the <a href="https://github.com/AcademySoftwareFoundation/openexr/blob/master/CHANGES.md#version-222-april-30-2020">CHANGES.md</a>
+  for more details.</p>
+
+<p>---</p>
+
+<p><strong>Feb 11, 2020</strong> - OpenEXR version v2.4.1 is available for download at <a href="https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.4.1">https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.4.1</a></p>
+
+<p>This is a patch release that addresses miscellaneous bugs.</p>
+
+<p>Summary</p>
+<ul>
+  <li>Various fixes for memory leaks and invalid memory accesses</li>
+  <li>Various fixes for integer overflow with large images.</li>
+  <li>Various cmake fixes for build/install of python modules.</li>
+  <li>ImfMisc.h is no longer installed, since it's a private header.</li>
+</ul>
+
+<p>---</p>
+
+<p><strong>Sep 19, 2019</strong> - OpenEXR version v2.4.0 is available for download at <a href="https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.4.0">https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.4.0</a></p>
 
 <p>This release contains no major new functionality, although it does
 include many miscellaneous bug and security fixes. The major new
@@ -219,7 +358,7 @@ repo home page.</p>
 <li>CVE-2018-18443 Issue #350 heap-buffer-overflow</li>
 </ul>
 
-<p><strong>Sep 5, 2019</strong> - OpenEXR version v2.4.0-beta.1 is available for download at <a href="https://github.com/openexr/openexr/releases/tag/v2.4.0-beta.1">https://github.com/openexr/openexr/releases/tag/v2.4.0-beta.1</a></p>
+<p><strong>Sep 5, 2019</strong> - OpenEXR version v2.4.0-beta.1 is available for download at <a href="https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.4.0-beta.1">https://github.com/AcademySoftwareFoundation/openexr/releases/tag/v2.4.0-beta.1</a></p>
 
 <p>This release contains no major new functionality, although it does
 include many miscellaneous bug and security fixes. The major new
@@ -284,16 +423,16 @@ repo home page.</p>
 </ul>
 
 <p>Full release notes are here:</p>
-<a href="https://github.com/openexr/openexr/blob/develop/CHANGES.md">https://github.com/openexr/openexr/blob/develop/CHANGES.md</a> 
+<a href="https://github.com/AcademySoftwareFoundation/openexr/blob/develop/CHANGES.md">https://github.com/AcademySoftwareFoundation/openexr/blob/develop/CHANGES.md</a> 
 
-<p>OpenEXR source can be obtained from the downloads section of <a href="http://www.openexr.com">www.openexr.com</a> or from the project page on github: <a href="https://github.com/openexr/openexr">https://github.com/openexr/openexr</a></p>
+<p>OpenEXR source can be obtained from the downloads section of <a href="http://www.openexr.com">www.openexr.com</a> or from the project page on github: <a href="https://github.com/AcademySoftwareFoundation/openexr">https://github.com/AcademySoftwareFoundation/openexr</a></p>
 
 <p><strong>November 30, 2017</strong> - OpenEXR v2.2.1 has been
   released and is available for download.  </p>
 
 <p>This maintenance release addresses the reported OpenEXR security vulnerabilities, specifically CVE-2017-9110, CVE-2017-9111, CVE-2017-9112, CVE-2017-9113, CVE-2017-9114, CVE-2017-9115, CVE-2017-9116. </p>
 
-<p>OpenEXR source can be obtained from the downloads section of <a href="http://www.openexr.com">www.openexr.com</a> or from the project page on github: <a href="https://github.com/openexr/openexr">https://github.com/openexr/openexr</a></p>
+<p>OpenEXR source can be obtained from the downloads section of <a href="http://www.openexr.com">www.openexr.com</a> or from the project page on github: <a href="https://github.com/AcademySoftwareFoundation/openexr">https://github.com/AcademySoftwareFoundation/openexr</a></p>
 
 <p>---</p>
 
@@ -312,7 +451,7 @@ repo home page.</p>
 
 <p>This release also includes improvements to cross-platform build support using CMake.</p>
 
-<p>OpenEXR source can be obtained from the downloads section of <a href="http://www.openexr.com">www.openexr.com</a> or from the project page on github: <a href="https://github.com/openexr/openexr">https://github.com/openexr/openexr</a></p>
+<p>OpenEXR source can be obtained from the downloads section of <a href="http://www.openexr.com">www.openexr.com</a> or from the project page on github: <a href="https://github.com/AcademySoftwareFoundation/openexr">https://github.com/AcademySoftwareFoundation/openexr</a></p>
 
 <p>---</p>
 
@@ -377,10 +516,10 @@ repo home page.</p>
 <p>* Multi-part image files. With OpenEXR v2, files can now contain a number of separate, but related, images in one file. Access to any part is independent of the others; in particular, no access of data need take place for unrequested parts.</p>
 <p>In addition, OpenEXR v2 also contains platform independent mechanisms for handling co-existing library version conflicts in the same process space. (Currently implemented in IlmImf)</p>
 <p>Finally, a reminder that this is a Beta release and potentially incompatible changes may be introduced in future releases prior to the v2.0.0 production version.</p>
-<p>OpenEXR v2Beta.1 can be found at: <a href="https://github.com/openexr/openexr/tree/v2_beta.1" target="_blank">https://github.com/openexr/openexr/tree/v2_beta.1</a></p>
+<p>OpenEXR v2Beta.1 can be found at: <a href="https://github.com/AcademySoftwareFoundation/openexr/tree/v2_beta.1" target="_blank">https://github.com/AcademySoftwareFoundation/openexr/tree/v2_beta.1</a></p>
 <p>---</p>
 
-<p><b>June 18, 2012</b> - We're pleased to announce that the OpenEXR source code is moving to <b>github.com</b>. You can browse, download and branch the code at <a href="http://www.github.com/openexr/openexr" target="_blank">www.github.com/openexr/openexr</a>.</p>
+<p><b>June 18, 2012</b> - We're pleased to announce that the OpenEXR source code is moving to <b>github.com</b>. You can browse, download and branch the code at <a href="http://www.github.com/AcademySoftwareFoundation/openexr" target="_blank">www.github.com/AcademySoftwareFoundation/openexr</a>.</p>
 
 <p>We're looking forward to taking advantage of the collaborative features presented by <b>git</b> and <b>github.com</b> and of course community contributions. Please see the developer Wiki pages for more information regarding participation.</p>
 
